@@ -24,8 +24,6 @@ submitBtn.addEventListener("click", () => {
   const pages = document.querySelector("#pages").value;
   const readStatus = document.querySelector("#read-status").checked ? "Read" : "Not Read";
 
-  console.log(readStatus);
-
   addBookToLibrary(title, author, pages, readStatus);
   addCard();
 });
@@ -36,16 +34,26 @@ function addCard() {
   const cardSection = document.querySelector(".card-section");
   const card = document.createElement("div");
   card.classList.add("card");
-  card.setAttribute("data-uuid", currentBook.uuid);
+  card.setAttribute("data-uuid", currentBook.id);
 
   const bookInfo = document.createElement("p");
   bookInfo.innerText = currentBook.info();
 
   const deleteBtn = document.createElement("button");
   deleteBtn.setAttribute("type", "button");
+  deleteBtn.classList.add("delete-button");
   deleteBtn.textContent = "Delete";
 
   card.appendChild(bookInfo);
   card.appendChild(deleteBtn);
   cardSection.appendChild(card);
+}
+
+function deleteCard() {
+  const deleteBtn = document.querySelector(".delete-button");
+  deleteBtn.addEventListener("click", () => {
+    library.forEach((book, index) => {
+      book.id === index.dataset.id ? console.log(index.dataset.id) : console.log(index.dataset.id);
+    });
+  });
 }
