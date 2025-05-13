@@ -4,31 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Library</title>
+    <title>Personal Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Library</h1>
+        <h1><i class="fas fa-book"></i> Personal Library</h1>
       </header>
       <main>
         <div class="form-card">
-          <p>Add Book</p>
+          <p>Add New Book</p>
           <form action="">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" />
+            <input type="text" id="title" name="title" placeholder="Book title" required />
+
             <label for="author">Author:</label>
-            <input type="text" id="author" name="author" />
+            <input type="text" id="author" name="author" placeholder="Author name" required />
+
             <label for="pages">Pages:</label>
-            <input type="number" name="pages" id="pages" />
+            <input type="number" name="pages" id="pages" min="1" placeholder="Number of pages" required />
+
             <div class="read-status">
-              <label style="display: inline" for="read-status">Read Status:</label>
+              <label for="read-status">Have you read it?</label>
               <input type="checkbox" name="read-status" id="read-status" />
             </div>
-            <button type="button" id="submitBtn">Submit</button>
+
+            <button type="button" id="submitBtn"><i class="fas fa-plus"></i> Add to Library</button>
           </form>
         </div>
-        <div class="card-section"></div>
+        <div class="card-section">
+        </div>
       </main>
     </div>
     <script src="./script.js"></script>
