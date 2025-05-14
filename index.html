@@ -13,28 +13,52 @@
         <h1><i class="fas fa-book"></i> Personal Library</h1>
       </header>
       <main>
-        <div class="form-card">
-          <p>Add New Book</p>
-          <form action="">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" placeholder="Book title" required />
-
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" placeholder="Author name" required />
-
-            <label for="pages">Pages:</label>
-            <input type="number" name="pages" id="pages" min="1" placeholder="Number of pages" required />
-
-            <div class="read-status">
-              <label for="read-status">Have you read it?</label>
-              <input type="checkbox" name="read-status" id="read-status" />
-            </div>
-
-            <button type="button" id="submitBtn"><i class="fas fa-plus"></i> Add to Library</button>
-          </form>
+        <div class="controls">
+          <button id="newBookBtn" class="new-book-btn">
+            <i class="fas fa-plus"></i> Add New Book
+          </button>
         </div>
+        
         <div class="card-section">
+          <!-- Book cards will be added here dynamically -->
         </div>
+        
+        <!-- Dialog for adding new books -->
+        <dialog id="bookDialog">
+          <div class="dialog-content">
+            <h2><i class="fas fa-book"></i> Add New Book</h2>
+            <form id="bookForm">
+              <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" placeholder="Book title" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" placeholder="Author name" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages" min="1" placeholder="Number of pages" required />
+              </div>
+              
+              <div class="form-group read-status">
+                <label for="read-status">Have you read it?</label>
+                <input type="checkbox" name="read-status" id="read-status" />
+              </div>
+              
+              <div class="form-buttons">
+                <button type="submit" id="submitBtn">
+                  <i class="fas fa-save"></i> Save Book
+                </button>
+                <button type="button" id="cancelBtn">
+                  <i class="fas fa-times"></i> Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </dialog>
       </main>
     </div>
     <script src="./script.js"></script>
