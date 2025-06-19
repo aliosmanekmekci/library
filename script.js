@@ -1,23 +1,27 @@
 const library = [];
 
-function Book(title, author, pages, readStatus = false) {
-  const id = crypto.randomUUID();
-  this.id = id;
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
-  this.info = function () {
-    return `Title: ${this.title}
-Author: ${this.author}
-Pages: ${this.pages}
-Status: ${this.readStatus}`;
-  };
+class Book {
+  constructor(title, author, pages, readStatus = false) {
+    const id = crypto.randomUUID();
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
 
-  this.toggleReadStatus = function () {
+  info() {
+    return `
+      Title: ${this.title}
+      Author: ${this.author}
+      Pages: ${this.pages}
+      Status: ${this.readStatus}
+      `;
+  }
+
+  toggleReadStatus() {
     this.readStatus = this.readStatus === "Read" ? "Not Read" : "Read";
-    return this.readStatus;
-  };
+  }
 }
 
 function addBookToLibrary(title, author, pages, readStatus) {
